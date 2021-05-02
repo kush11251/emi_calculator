@@ -20,13 +20,13 @@ class HomeScreen extends StatefulWidget {
 
 class HomeScreenState extends State<HomeScreen> {
 
-  List _tenureTypes = [ 'Month(s)', 'Year(s)' ];
-  String _tenureType = "Year(s)";
+  List _timePeriodTypes = [ 'Month(s)', 'Year(s)' ];
+  String _timePeriodType = "Year(s)";
   String _emiResult = "";
 
   final TextEditingController _principalAmount = TextEditingController();
   final TextEditingController _interestRate = TextEditingController();
-  final TextEditingController _tenure = TextEditingController();
+  final TextEditingController _timePeriod = TextEditingController();
 
   bool _switchValue = true;
 
@@ -48,7 +48,7 @@ class HomeScreenState extends State<HomeScreen> {
                         child: TextField(
                           controller: _principalAmount,
                           decoration: InputDecoration(
-                              labelText: "Enter Principal Amount"
+                              labelText: "Principal Amount"
                           ),
                           keyboardType: TextInputType.number,
 
@@ -74,9 +74,9 @@ class HomeScreenState extends State<HomeScreen> {
                                 flex: 4,
                                 fit: FlexFit.tight,
                                 child: TextField(
-                                  controller: _tenure,
+                                  controller: _timePeriod,
                                   decoration: InputDecoration(
-                                      labelText: "Tenure"
+                                      labelText: "Time Period"
                                   ),
                                   keyboardType: TextInputType.number,
                                 )
@@ -87,7 +87,7 @@ class HomeScreenState extends State<HomeScreen> {
                                 child: Column(
                                     children: [
                                       Text(
-                                          _tenureType,
+                                          _timePeriodType,
                                           style: TextStyle(
                                               fontWeight: FontWeight.bold
                                           )
@@ -98,9 +98,9 @@ class HomeScreenState extends State<HomeScreen> {
                                             print(value);
 
                                             if( value ) {
-                                              _tenureType = _tenureTypes[1];
+                                              _timePeriodType = _timePeriodTypes[1];
                                             } else {
-                                              _tenureType = _tenureTypes[0];
+                                              _timePeriodType = _timePeriodTypes[0];
                                             }
 
                                             setState(() {
@@ -148,7 +148,7 @@ class HomeScreenState extends State<HomeScreen> {
     double A = 0.0;
     int P = int.parse(_principalAmount.text);
     double r = int.parse(_interestRate.text) / 12 / 100;
-    int n = _tenureType == "Year(s)" ? int.parse(_tenure.text) * 12  : int.parse(_tenure.text);
+    int n = _timePeriodType == "Year(s)" ? int.parse(_timePeriod.text) * 12  : int.parse(_timePeriod.text);
 
     A = (P * r * pow((1+r), n) / ( pow((1+r),n) -1));
 
