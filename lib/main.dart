@@ -5,8 +5,8 @@ void main() => runApp(
     MaterialApp(
         title: 'EMI Calc',
         theme: ThemeData(
-          primaryColor: Colors.redAccent,
-          accentColor: Colors.redAccent,
+          primaryColor: Colors.blueAccent,
+          accentColor: Colors.blueAccent,
         ),
 
         home: HomeScreen()
@@ -122,7 +122,7 @@ class HomeScreenState extends State<HomeScreen> {
                         child: FlatButton(
                             onPressed: _handleCalculation,
                             child: Text("Calculate"),
-                            color: Colors.redAccent,
+                            color: Colors.blueAccent,
                             textColor: Colors.white,
                             padding: EdgeInsets.only(top: 10.0, bottom: 10.0, left: 24.0, right: 24.0)
                         )
